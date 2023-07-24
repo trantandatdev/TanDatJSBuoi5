@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- BAI TAP 1 -->
+    <div class="container">
+      <h2 style="text-align: center;">BAI TAP 1: Quản lý tuyển sinh</h2>
+      <div class="row">
+        <div class="col-4">
+          <input id="diemChuan" type="text" class="form-control" placeholder="Diem chuan">
+        </div>
+        <div class="col-4">
+          <select class="form-control" name="" id="khuVuc">
+            <option value="">Chon khu vuc</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <select class="form-control" name="" id="doiTuong">
+            <option value="">Chon doi tuong</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <input id="diem1" type="text" class="form-control" placeholder="Diem thu mon nhat">
+        </div>
+        <div class="col-4">
+          <input id="diem2" type="text" class="form-control" placeholder="Diem thu mon hai">
+        </div>
+        <div class="col-4">
+          <input id="diem3" type="text" class="form-control" placeholder="Diem thu mon ba">
+        </div>
+      </div>
+      <div class="form-group">
+        <button onclick="tongDiem()" type="submit" class="btn btn-primary">Tinh tien</button>
+      <div class="alert alert-warning" role="alert">
+        <span id="ketQuaBai1"></span>
+      </div>
+      </div>
+    </div>
+    <hr>
+    <!-- BAI TAP 2 -->
+    <div class="container">
+      <h2 style="text-align: center;">BAI TAP 2: Tính tiền điện</h2>
+      <div class="form-group">
+          <input class="form-control" id="hoTen" placeholder="Nhap ho ten">
+        </div>
+        <div class="form-group">
+          <input class="form-control" id="KWDien" placeholder="Nhap so KW">
+        </div>
+        <div class="form-group">
+          <button onclick="tinhTienDien()" type="submit" class="btn btn-primary">Tinh tien</button>
+        <div class="alert alert-warning" role="alert">
+          <span id="ketQuaBai2"></span>
+        </div>
+        </div>
+    </div>
+    <hr>
+    <!-- BAI TAP 3 -->
+    <div class="container">
+      <h2 style="text-align: center;">BAI TAP 3: Tính thuế thu nhập cá nhân</h2>
+      <div class="form-group">
+          <input class="form-control" id="hoTen3" placeholder="Nhap ho ten">
+        </div>
+        <div class="form-group">
+          <input class="form-control" id="tongThuNhapNam" placeholder="Tong thu nhap nam">
+        </div>
+        <div class="form-group">
+          <input class="form-control" id="soNguoi" placeholder="So nguoi phu thuoc">
+        </div>
+        <div class="form-group">
+          <button onclick="tinhThue()" type="submit" class="btn btn-primary">Tinh tien</button>
+        <div class="alert alert-warning" role="alert">
+          <span id="ketQuaBai3"></span>
+        </div>
+        </div>
+    </div>
+    <hr>
+    <!-- BAI TAP 4 -->
+    <div class="container">
+      <h1>Tinh Tien Cap</h1>
+      <div class="form-group">
+        <select
+          class="form-control"
+          onchange="showSelectedOption()"
+          name=""
+          id="KH"
+        >
+          <option value="">Chon loai khach hang</option>
+          <option value="nhadan">Nha Dan</option>
+          <option value="doanhnghiep">Doanh Nghiep</option>
+        </select>
+      </div>
+      <div class="form-group" id="doanhnghiep-ketnoi" style="display: none">
+        <input
+          value=""
+          type="text"
+          class="form-control"
+          id="soketnoi"
+          placeholder="Nhap so ket noi"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="maKH"
+          placeholder="Nhap ma khach hang"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="number"
+          class="form-control"
+          id="kenhCC"
+          placeholder="Nhap so kenh cao cap"
+        />
+      </div>
+      <button onclick="ketquaTiencap()" class="btn btn-primary">
+        Tinh tien cap
+      </button>
+      <div id="result_tiencap"></div>
+    </div>
+    <hr>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
